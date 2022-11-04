@@ -23,7 +23,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-**/[Ll]logs/*
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -330,7 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
-# Instant Assistant Repo Specific
-
-*.code-workspace
-
+**/logs
