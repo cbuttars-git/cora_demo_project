@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <AspNetCoreModuleName>AspNetCoreModuleV2</AspNetCoreModuleName>
+    <Platforms>x64</Platforms>
+    <AssemblyName>Navient.Presentation.Service.Rest.ParseAndReplace</AssemblyName>
+    <RootNamespace>Navient.Presentation.Service.Rest</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarningsAsErrors />
+    <NoWarn>1701;1702;1591</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\FilesController.cs" />
+    <Compile Remove="Controllers\ProductsController.cs" />
+    <Compile Remove="Program.bak.cs" />
+    <Compile Remove="Program_BAK.cs" />
+    <Compile Remove="Startup_BAK.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Contrib.Extensions.Configuration.AutoBind" Version="1.0.0" />
+    <PackageReference Include="Contrib.Extensions.Configuration.VariablesSubstitution" Version="1.2.0" />
+    <PackageReference Include="DotNetEnv" Version="2.3.0" />
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
+    <PackageReference Include="MediatR" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+    <PackageReference Include="Serilog.Expressions" Version="3.4.1" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="5.0.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="1.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\common.extension.serilog\extension.serilog.csproj" />
+    <ProjectReference Include="..\common.extension.validation\extension.validation.csproj" />
+    <ProjectReference Include="..\common.model.wattsn.test\model.wattsn.test.csproj" />
+    <ProjectReference Include="..\configuration.extension.json\extension.json.csproj" />
+    <ProjectReference Include="..\configuration.extension.serilog\extension.serilog.csproj" />
+    <ProjectReference Include="..\configuration.extension.swagger\extension.swagger.csproj" />
+    <ProjectReference Include="..\configuration.model.applicationsettings\model.applicationsettings.csproj" />
+    <ProjectReference Include="..\configuration.swagger\configuration.swagger.csproj" />
+    <ProjectReference Include="..\service.handler.parseandreplacemessage\handler.parseandreplacemessage.csproj" />
+    <ProjectReference Include="..\service.handler.parse\handler.parse.csproj" />
+    <ProjectReference Include="..\service.handler.replace\handler.replace.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
